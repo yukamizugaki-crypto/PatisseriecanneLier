@@ -167,11 +167,11 @@ ul, ol {
   width: 100%;
 }
 
-/* ロゴ */
 .site-logo {
   display: flex;
   align-items: center;
   height: 100%;
+  transition: opacity 0.4s var(--ease-out), visibility 0.4s var(--ease-out);
 }
 .logo-image {
   height: 52px;
@@ -836,6 +836,30 @@ ul, ol {
   min-width: 52px;
 }
 
+.parking-note {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  display: block;
+  margin-top: 2px;
+}
+
+.access-parking-map {
+  margin-top: 12px;
+  width: 100%;
+  max-width: 360px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 8px 20px rgba(26, 43, 36, 0.05);
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.parking-map-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* ============================================
    11. フッター
    ============================================ */
@@ -912,6 +936,12 @@ ul, ol {
   }
   .hamburger {
     display: flex;
+  }
+
+  /* スクロール前はロゴ非表示 */
+  #site-header:not(.scrolled) .site-logo {
+    opacity: 0;
+    visibility: hidden;
   }
 
   .concept-inner,
