@@ -21,7 +21,7 @@
   --font-serif-en: 'Cormorant Garamond', 'Noto Serif JP', serif;
   --font-serif-ja: 'Noto Serif JP', serif;
   --font-sans-ja:  'Noto Sans JP', sans-serif;
-  --font-script:   'Allura', cursive; /* 優美な筆記体フォント */
+  --font-script:   'Monsieur La Doulaise', cursive; /* 優美な筆記体フォント */
 
   --max-width: 1200px;
   --header-h:  72px; /* ロゴサイズに合わせて少し高さを調整 */
