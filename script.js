@@ -135,18 +135,29 @@ document.addEventListener('DOMContentLoaded', () => {
   // コンセプト（Our Story）のスライドショー（5秒間隔）
   initSlideshow('.concept-slides', '.concept-slide', 5000);
 
+  // ホールケーキ（Whole Cake）のスライドショー（5秒間隔）
+  initSlideshow('.wholecake-slides', '.wholecake-slide', 5000);
+
 
   /* ============================================
      7. オープニングローダー制御
      ============================================ */
-  window.addEventListener('load', () => {
-    const openingMask = document.getElementById('opening-mask');
-    if (!openingMask) return;
-
-    // 最低1.8秒はロゴを表示し、その後ふわっとメイン画面にフェードアウト
-    setTimeout(() => {
-      openingMask.classList.add('loaded');
-    }, 1800);
-  });
+  const openingMask = document.getElementById('opening-mask');
+  if (openingMask) {
+    // 同一セッションでの訪問済みフラグ、またはURLにアンカーハッシュ（#conceptや#wholecakeなど）がある場合はスキップ
+    const hasHash = window.location.hash !== '' && window.location.hash !== '#';
+    
+    if (sessionStorage.getItem('visited') || hasHash) {
+      openingMask.style.display = 'none';
+    } else {
+      window.addEventListener('load', () => {
+        // 最低1.8秒はロゴを表示し、その後ふわっとメイン画面にフェードアウト
+        setTimeout(() => {
+          openingMask.classList.add('loaded');
+          sessionStorage.setItem('visited', 'true');
+        }, 1800);
+      });
+    }
+  }
 
 });
