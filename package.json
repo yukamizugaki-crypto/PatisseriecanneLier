@@ -1,0 +1,7 @@
+{
+  "name": "patisseriecannelier",
+  "private": true,
+  "scripts": {
+    "build": "./scripts/sync-public.sh"
+  }
+}

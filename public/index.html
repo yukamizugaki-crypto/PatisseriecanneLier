@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>パティスリー カヌリエ | 高槻市のフランス菓子専門店</title>
+  <meta name="description" content="大阪府高槻市のパティスリー カヌリエ。フランスの伝統菓子をベースに、パティシエ夫婦が作る本当においしいお菓子をお届けします。JR高槻駅北口より徒歩5分。">
+  <meta name="keywords" content="パティスリー,カヌリエ,高槻市,フランス菓子,ケーキ,クロワッサン,洋菓子">
+  <meta name="google-site-verification" content="Ur5aZT_jZSeFsXH27acqCzoDfN8csVFua3FNb7Xc0w0">
+
+  <!-- OGP -->
+  <meta property="og:title" content="パティスリー カヌリエ | 高槻市のフランス菓子専門店">
+  <meta property="og:description" content="大阪府高槻市のパティスリー カヌリエ。フランスの伝統菓子をベースに、パティシエ夫婦が作る本当においしいお菓子をお届けします。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="パティスリー カヌリエ">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Libre+Bodoni:ital,wght@0,400;0,700;1,400;1,700&family=Monsieur+La+Doulaise&family=Noto+Serif+JP:wght@400;500&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "パティスリー カヌリエ",
+    "description": "フランスの伝統菓子をベースに、パティシエ夫婦が作る本当においしいお菓子をお届けする高槻市の洋菓子店。",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "JP",
+      "postalCode": "569-1117",
+      "addressRegion": "大阪府",
+      "addressLocality": "高槻市天神町1丁目5-5番5号"
+    },
+    "telephone": "072-668-4820",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "11:00",
+        "closes": "19:00"
+      }
+    ],
+    "url": "https://www.instagram.com/patisseriecannelier/",
+    "sameAs": ["https://www.instagram.com/patisseriecannelier/"]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============================================
+       オープニングローダー
+       ============================================ -->
+  <div id="opening-mask" aria-hidden="true">
+    <div class="opening-logo-wrapper">
+      <img src="img/ロゴ.jpg" alt="Pâtisserie CanneLier" class="opening-logo">
+    </div>
+  </div>
+
+  <!-- ============================================
+       ヘッダー（固定ナビ）
+       ============================================ -->
+  <header id="site-header" role="banner">
+    <div class="container">
+      <!-- ロゴ -->
+      <a href="#" class="site-logo" aria-label="パティスリー カヌリエ トップへ">
+        <img src="img/ロゴ.jpg" alt="パティスリー カヌリエ" class="logo-image">
+      </a>
+
+      <!-- PC ナビゲーション -->
+      <nav class="header-nav" aria-label="メインナビゲーション">
+        <a href="#concept">Concept</a>
+        <a href="#shop">Online Shop</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#wholecake">Whole Cake</a>
+        <a href="#info">Info</a>
+        <a href="#access">Access</a>
+      </nav>
+
+      <!-- ハンバーガー（モバイル） -->
+      <button
+        id="hamburger-btn"
+        class="hamburger"
+        aria-label="メニューを開く"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- モバイルメニュー -->
+  <nav id="mobile-menu" class="mobile-menu" aria-label="モバイルナビゲーション">
+    <a href="#concept">
+      Concept
+      <span class="menu-ja">コンセプト</span>
+    </a>
+    <a href="#shop">
+      Online Shop
+      <span class="menu-ja">オンラインショップ</span>
+    </a>
+    <a href="#gallery">
+      Gallery
+      <span class="menu-ja">ギャラリー</span>
+    </a>
+    <a href="#wholecake">
+      Whole Cake
+      <span class="menu-ja">ホールケーキ</span>
+    </a>
+    <a href="#info">
+      Info
+      <span class="menu-ja">店舗情報</span>
+    </a>
+    <a href="#access">
+      Access
+      <span class="menu-ja">アクセス</span>
+    </a>
+  </nav>
+
+
+  <main>
+
+    <!-- ============================================
+         ヒーロー
+         ============================================ -->
+    <section id="hero" aria-label="メインビジュアル">
+      <div class="hero-slides">
+        <div class="hero-slide active" style="background-image: url('img/HERO1.jpg');" role="img" aria-label="パティスリー カヌリエ メインイメージ1"></div>
+        <div class="hero-slide" style="background-image: url('img/HERO2.jpg');" role="img" aria-label="パティスリー カヌリエ メインイメージ2"></div>
+        <div class="hero-slide" style="background-image: url('img/HERO3.jpg');" role="img" aria-label="パティスリー カヌリエ メインイメージ3"></div>
+        <div class="hero-slide" style="background-image: url('img/HERO4.jpg');" role="img" aria-label="パティスリー カヌリエ メインイメージ4"></div>
+        <div class="hero-slide" style="background-image: url('img/HERO5.jpg');" role="img" aria-label="パティスリー カヌリエ メインイメージ5"></div>
+        <div class="hero-slide" style="background-image: url('img/HERO6.jpg');" role="img" aria-label="パティスリー カヌリエ メインイメージ6"></div>
+        <div class="hero-slide" style="background-image: url('img/HERO7.jpg');" role="img" aria-label="パティスリー カヌリエ メインイメージ7"></div>
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <div class="container">
+          <h1 class="hero-title-en fade-in">Pâtisserie<br>CanneLier</h1>
+          <p class="hero-subtitle fade-in fade-in-delay-1">高槻のパティシエ夫婦が作る、<br>フランス菓子の物語</p>
+        </div>
+      </div>
+
+      <!-- スクロール誘導 -->
+      <div class="hero-scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+
+    <section id="concept" aria-labelledby="concept-title">
+      <div class="container">
+        <div class="concept-inner">
+
+          <!-- 左：テキスト -->
+          <div class="concept-text-col">
+            <div class="concept-heading fade-in">
+              <span class="section-label">Our Story</span>
+              <h2 id="concept-title" class="section-title">
+                フランスで心躍った<br>お菓子との出会いから
+              </h2>
+            </div>
+
+            <div class="concept-body fade-in fade-in-delay-1">
+              <p>
+                パリのパティスリーに一歩足を踏み入れれば、焼きたてのクロワッサンの香ばしい香り、
+                朝の白い光に映える表情豊かなお菓子たち——そんな空間への憧れを胸に、
+                2021年、高槻にてお店をはじめました。
+              </p>
+              <p>
+                フランスの伝統に、私たちのルーツと今まで培った技術・経験を重ね、
+                「私たちだからできる本当においしいお菓子」を作り続けています。
+              </p>
+            </div>
+          </div>
+
+          <!-- 右：写真（Our Story 1〜4 のスライドショー） -->
+          <div class="concept-image-col fade-in fade-in-delay-1">
+            <div class="concept-slides">
+              <div class="concept-slide active" style="background-image: url('img/Our Story1.jpg');" role="img" aria-label="パティスリー カヌリエの物語イメージ1"></div>
+              <div class="concept-slide" style="background-image: url('img/Our Story2.jpg');" role="img" aria-label="パティスリー カヌリエの物語イメージ2"></div>
+              <div class="concept-slide" style="background-image: url('img/Our Story3.jpg');" role="img" aria-label="パティスリー カヌリエの物語イメージ3"></div>
+              <div class="concept-slide" style="background-image: url('img/Our Story4.jpg');" role="img" aria-label="パティスリー カヌリエの物語イメージ4"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================
+         オンラインショップ（BASE）
+         ============================================ -->
+    <section id="shop" aria-labelledby="shop-title">
+      <div class="container">
+        <div class="shop-inner">
+          <span class="section-label fade-in">Online Shop</span>
+          <h2 id="shop-title" class="shop-title fade-in fade-in-delay-1">BASE にてお取り寄せ承ります</h2>
+          <p class="shop-desc fade-in fade-in-delay-2">
+            大切な方へのギフトや、遠方の方もオンラインでご注文いただけます。
+          </p>
+          <a
+            id="btn-base-shop"
+            href="https://cannelier.base.shop/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-shop fade-in fade-in-delay-3"
+            aria-label="オンラインショップ（BASE）を開く（新しいタブで開きます）"
+          >
+            オンラインショップへ
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================
+         ギャラリー
+         ============================================ -->
+    <section id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="gallery-header">
+          <span class="section-label fade-in">Gallery</span>
+          <h2 id="gallery-title" class="section-title-en fade-in fade-in-delay-1">Pâtisserie</h2>
+        </div>
+
+        <div class="gallery-grid" aria-label="商品写真ギャラリー">
+          <div class="gallery-item fade-in">
+            <div class="gallery-img-wrapper">
+              <img src="img/Gallery1.jpg" alt="洋菓子" class="gallery-img" loading="lazy">
+            </div>
+          </div>
+          <div class="gallery-item fade-in fade-in-delay-1">
+            <div class="gallery-img-wrapper">
+              <img src="img/Gallery2.jpg" alt="洋菓子" class="gallery-img" loading="lazy">
+            </div>
+          </div>
+          <div class="gallery-item fade-in fade-in-delay-2">
+            <div class="gallery-img-wrapper">
+              <img src="img/Gallery3.jpg" alt="洋菓子" class="gallery-img" loading="lazy">
+            </div>
+          </div>
+          <div class="gallery-item fade-in fade-in-delay-3">
+            <div class="gallery-img-wrapper">
+              <img src="img/Gallery4.jpg" alt="洋菓子" class="gallery-img" loading="lazy">
+            </div>
+          </div>
+          <div class="gallery-item fade-in">
+            <div class="gallery-img-wrapper">
+              <img src="img/Gallery5.jpg" alt="洋菓子" class="gallery-img" loading="lazy">
+            </div>
+          </div>
+          <div class="gallery-item fade-in fade-in-delay-1">
+            <div class="gallery-img-wrapper">
+              <img src="img/Gallery6.jpg" alt="洋菓子" class="gallery-img" loading="lazy">
+            </div>
+          </div>
+          <div class="gallery-item fade-in fade-in-delay-2">
+            <div class="gallery-img-wrapper">
+              <img src="img/Gallery7.jpg" alt="洋菓子" class="gallery-img" loading="lazy">
+            </div>
+          </div>
+          <div class="gallery-item fade-in fade-in-delay-3">
+            <div class="gallery-img-wrapper">
+              <img src="img/Gallery8.jpg" alt="洋菓子" class="gallery-img" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <p class="gallery-note fade-in">
+          最新のお菓子情報は
+          <a
+            href="https://www.instagram.com/patisseriecannelier/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagramで最新情報を確認する（新しいタブで開きます）"
+          >Instagram</a>
+          にてご確認ください。
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ============================================
+         パティシエ夫婦について（店名の由来とルーツ）
+         ============================================ -->
+    <section id="patissier" aria-labelledby="patissier-title">
+      <div class="container">
+        <div class="patissier-inner">
+          
+          <div class="patissier-image-col fade-in">
+            <div class="patissier-img-wrapper">
+              <img src="img/パティスリー夫婦.jpg" alt="パティスリー カヌリエのパティシエ夫婦" class="patissier-img">
+            </div>
+          </div>
+
+          <!-- 右：メッセージ -->
+          <div class="patissier-text-col fade-in fade-in-delay-1">
+            <div class="patissier-heading">
+              <span class="section-label">Pâtissier</span>
+              <h2 id="patissier-title" class="section-title">
+                繋がりを大切に、<br>お菓子を届ける
+              </h2>
+            </div>
+            
+            <div class="patissier-body">
+              <p class="highlight-text">
+                「繋がりを大切に、お菓子を作っていきたい。<br>
+                私たちが作るお菓子が、大切な人との繋がりの中にあったらいいな。」
+              </p>
+              <p>
+                そんな想いを込めて、フランス語で「繋ぐ」を意味する <em>Lier</em> と
+                私たちの名前を掛け合わせ、「カヌリエ」という店名にしました。
+              </p>
+              <p>
+                修行先「ドゥブルベボレロ」での研修旅行では、パリ、フランス各地方、
+                時にはイタリアに滞在し、ヨーロッパの食文化を肌で感じる貴重な経験をいただきました。
+                その心ときめいた気持ちを、お店の扉を開けた瞬間に感じてもらえたら嬉しいです。
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================
+         ホールケーキ（Whole Cake）
+         ============================================ -->
+    <section id="wholecake" aria-labelledby="wholecake-title">
+      <div class="container">
+        <div class="wholecake-inner">
+
+          <!-- 1. 説明文（ヘッダーとイントロ） -->
+          <div class="wholecake-intro-col">
+            <div class="wholecake-heading fade-in">
+              <span class="section-label">Whole Cake</span>
+              <h2 id="wholecake-title" class="section-title">
+                特別な日を彩る、<br>ホールケーキのご案内
+              </h2>
+            </div>
+            <div class="wholecake-desc-text fade-in fade-in-delay-1">
+              <p>
+                お誕生日や記念日など、大切な日のお祝いに。素材にこだわり、一つひとつ丁寧に作り上げるホールケーキをご用意しております。
+              </p>
+            </div>
+          </div>
+
+          <!-- 2. スライドショー（スマホ時にはここに挿入される） -->
+          <div class="wholecake-image-col fade-in fade-in-delay-1">
+            <div class="wholecake-slides">
+              <div class="wholecake-slide active" style="background-image: url('img/季節のフルーツ デコレーション.jpg');" role="img" aria-label="季節のフルーツ デコレーション"></div>
+              <div class="wholecake-slide" style="background-image: url('img/シャンティー・ショコラ.jpg');" role="img" aria-label="シャンティー・ショコラ"></div>
+              <div class="wholecake-slide" style="background-image: url('img/アイアシェッケ デコレーション.jpg');" role="img" aria-label="アイアシェッケ デコレーション"></div>
+            </div>
+          </div>
+
+          <!-- 3. 詳しく見るボタン（スマホ時には画像の下に挿入される） -->
+          <div class="wholecake-action fade-in fade-in-delay-2">
+            <a href="wholecake.html" class="btn-shop" aria-label="ホールケーキの詳細ページを見る">
+              詳しく見る
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- 4. 注意事項 -->
+          <div class="wholecake-details-col">
+            <!-- ご予約についての注意事項 -->
+            <div class="wholecake-notice fade-in fade-in-delay-1">
+              <p class="notice-title">【ご予約に関する大切なお願い】</p>
+              <ul>
+                <li>
+                  <span class="bullet">◯</span>
+                  <span class="text">ご予約の受付は前日までとなっておりますが、フルーツの在庫の関係等で承れないお日にちがある場合がございますので、お早めのご予約をお勧めしております。</span>
+                </li>
+                <li>
+                  <span class="bullet">◯</span>
+                  <span class="text">ご予約方法はお電話または店頭受付のみとなっております。<br><span class="highlight">（SNSでのご予約は見落としを防ぐ為行っておりません。）</span></span>
+                </li>
+                <li>
+                  <span class="bullet">◯</span>
+                  <span class="text">当日のキャンセルは受け付けておりません。</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================
+         店舗情報（Info）
+         ============================================ -->
+    <section id="info" aria-labelledby="info-title">
+      <div class="container">
+        <div class="info-inner">
+
+          <!-- 左：テーブル -->
+          <div class="info-table-col fade-in">
+            <span class="section-label">Shop Info</span>
+            <h2 id="info-title" class="section-title" style="margin-bottom: 40px;">店舗情報</h2>
+
+            <table class="info-table" aria-label="店舗基本情報">
+              <tbody>
+                <tr>
+                  <th scope="row">Hours</th>
+                  <td>
+                    11:00 &ndash; 19:00
+                    <div class="info-note">※ 売切れ次第閉店の場合がございます</div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Closed</th>
+                  <td>
+                    水曜日定休<br>
+                    火曜日は不定休
+                    <div class="info-note">
+                      最新の営業情報は
+                      <a
+                        href="https://www.instagram.com/patisseriecannelier/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="info-instagram-link"
+                        aria-label="Instagramで最新情報を確認（新しいタブで開きます）"
+                      >Instagram</a>
+                      でご確認ください
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Tel</th>
+                  <td>
+                    <a href="tel:0726684820" aria-label="電話番号 072-668-4820">072-668-4820</a>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Address</th>
+                  <td>
+                    〒569-1117<br>
+                    大阪府高槻市天神町<br>1丁目5−5番5号
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Instagram</th>
+                  <td>
+                    <a
+                      href="https://www.instagram.com/patisseriecannelier/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="info-instagram-link"
+                      aria-label="Instagramを開く（新しいタブで開きます）"
+                    >@patisseriecannelier</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 右：予約・問い合わせ -->
+          <div class="info-contact-col fade-in fade-in-delay-2">
+
+            <div class="info-contact-block">
+              <span class="block-label">Contact &amp; Reservation</span>
+              <p class="block-title">ご予約・お問い合わせ</p>
+              <div class="phone-number">
+                <a href="tel:0726684820" aria-label="電話番号 072-668-4820">072-668-4820</a>
+              </div>
+              <p class="block-note">
+                ご予約および各種お問い合わせはお電話にて承っております。営業時間中（11:00〜19:00）にお気軽にお電話ください。
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================
+         アクセス
+         ============================================ -->
+    <section id="access" aria-labelledby="access-title">
+      <div class="access-inner">
+
+        <!-- Google Map -->
+        <div class="access-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3276.5!2d135.6142!3d34.8505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4aaa0fcc784388f6!2z44OR44OC44Kj44K544Oq44O8IOOCq-ODjuODquOCqQ!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"
+            title="パティスリー カヌリエ のGoogleマップ"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <!-- アクセス情報 -->
+        <div class="access-info fade-in">
+          <div>
+            <span class="section-label">Access</span>
+            <h2 id="access-title" class="section-title">アクセス</h2>
+          </div>
+
+          <address class="access-address" style="font-style: normal;">
+            〒569-1117<br>
+            大阪府高槻市天神町1丁目5−5番5号
+          </address>
+
+          <div class="access-divider"></div>
+
+          <div class="access-detail">
+            <div class="access-detail-item">
+              <span class="item-label">Train</span>
+              <span>JR高槻駅 北口より徒歩5分</span>
+            </div>
+            <div class="access-detail-item">
+              <span class="item-label">Tel</span>
+              <span>
+                <a href="tel:0726684820" aria-label="電話番号 072-668-4820">072-668-4820</a>
+              </span>
+            </div>
+            <div class="access-detail-item">
+              <span class="item-label">Hours</span>
+              <span>11:00 &ndash; 19:00<br>水曜定休（火曜不定休）</span>
+            </div>
+            <div class="access-detail-item">
+              <span class="item-label">Parking</span>
+              <span>
+                1台分あり<br>
+                <span class="parking-note">（お店の右側駐車場③のみ）</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="access-parking-map">
+            <img src="img/駐車場.png" alt="駐車場のご案内：お店の右側駐車場③のみ" class="parking-map-img" loading="lazy">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ============================================
+       フッター
+       ============================================ -->
+  <footer id="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-logo" aria-label="パティスリー カヌリエ">
+          <img src="img/ロゴ.jpg" alt="パティスリー カヌリエ" class="footer-logo-image">
+        </div>
+
+        <nav class="footer-nav" aria-label="フッターナビゲーション">
+          <a href="#concept">Concept</a>
+          <a href="#shop">Online Shop</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#wholecake">Whole Cake</a>
+          <a href="#info">Info</a>
+          <a href="#access">Access</a>
+          <a
+            href="https://www.instagram.com/patisseriecannelier/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram（新しいタブで開きます）"
+          >Instagram</a>
+        </nav>
+
+        <div class="footer-line" aria-hidden="true"></div>
+
+        <p class="footer-copy">
+          &copy; <span id="current-year">2024</span> Pâtisserie CanneLier. All rights reserved.
+        </p>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+
+</body>
+</html>

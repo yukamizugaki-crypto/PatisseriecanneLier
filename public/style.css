@@ -1,0 +1,1457 @@
+/* ============================================
+   パティスリー カヌリエ — style.css
+   ============================================ */
+
+/* --- Google Fonts は HTML 側で読み込み --- */
+
+/* ============================================
+   1. CSS変数（デザイントークン）
+   ============================================ */
+:root {
+  --color-bg:         #F7F2E5; /* ロゴ背景に合わせた、上品なフレンチ・アイボリー */
+  --color-bg-dark:    #1A4853; /* ロゴの文字色に合わせた、深みのあるフレンチ・ブルーグリーン */
+  --color-surface:    #ECE7DA; /* 落ち着いたアイボリー */
+  --color-border:     #DFD9CC; /* 柔らかな境界線 */
+  --color-text:       #1A4853; /* 文字色はロゴのブルーグリーンを基準に */
+  --color-text-muted: #6B5E56; /* 装飾のブラウンから派生した落ち着いたアッシュブラウン */
+  --color-gold:       #A28574; /* メインアクセントにロゴの装飾ブラウンを使用 */
+  --color-gold-light: #BCA393; /* 明るめのココアブラウン */
+  --color-placeholder:#DFD9CC; /* プレースホルダー */
+
+  --font-serif-en: 'Cormorant Garamond', 'Noto Serif JP', serif;
+  --font-serif-ja: 'Noto Serif JP', serif;
+  --font-sans-ja:  'Noto Sans JP', sans-serif;
+  --font-script:   'Monsieur La Doulaise', cursive; /* 優美な筆記体フォント */
+  --font-bodoni:   'Libre Bodoni', serif;
+
+  --max-width: 1200px;
+  --header-h:  72px; /* ロゴサイズに合わせて少し高さを調整 */
+
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ============================================
+   2. リセット & ベース
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans-ja);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ============================================
+   3. ユーティリティ
+   ============================================ */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-label {
+  display: block;
+  font-family: var(--font-serif-en);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-serif-ja);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  color: var(--color-text);
+}
+
+.section-title-en {
+  font-family: var(--font-bodoni);
+  font-size: clamp(2.0rem, 4vw, 3.2rem);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--color-gold);
+  line-height: 1.2;
+}
+
+/* ---- フェードイン アニメーション ---- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in-delay-1 { transition-delay: 0.1s; }
+.fade-in-delay-2 { transition-delay: 0.2s; }
+.fade-in-delay-3 { transition-delay: 0.3s; }
+.fade-in-delay-4 { transition-delay: 0.4s; }
+
+/* グレープレースホルダー */
+.photo-placeholder {
+  background-color: var(--color-placeholder);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.placeholder-text {
+  font-family: var(--font-serif-ja);
+  font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+}
+
+/* ============================================
+   4. ヘッダー
+   ============================================ */
+#site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  transition: background 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+}
+
+#site-header.scrolled {
+  background: rgba(247, 242, 229, 0.96);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 1px 0 var(--color-border);
+}
+
+#site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: opacity 0.4s var(--ease-out), visibility 0.4s var(--ease-out);
+}
+.logo-image {
+  height: 52px;
+  width: auto;
+  display: block;
+  mix-blend-mode: multiply; /* 背景を自然に溶け込ませる */
+}
+
+/* PC ナビ */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+.header-nav a {
+  font-family: var(--font-serif-en);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  transition: color 0.25s;
+  position: relative;
+}
+.header-nav a::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-gold);
+  transition: width 0.3s var(--ease-out);
+}
+.header-nav a:hover {
+  color: var(--color-text);
+}
+.header-nav a:hover::after {
+  width: 100%;
+}
+
+/* ハンバーガーボタン */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+  z-index: 200;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--color-text);
+  transition: transform 0.35s var(--ease-out), opacity 0.35s;
+}
+.hamburger.active span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* モバイルメニュー */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--color-bg);
+  z-index: 150;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-out);
+}
+.mobile-menu.open {
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+}
+.mobile-menu a {
+  font-family: var(--font-serif-en);
+  font-size: 1.4rem;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  transition: color 0.25s;
+}
+.mobile-menu a:hover {
+  color: var(--color-gold);
+}
+.mobile-menu .menu-ja {
+  display: block;
+  font-family: var(--font-serif-ja);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-top: 4px;
+  text-transform: none;
+}
+
+/* ============================================
+   5. ヒーロー
+   ============================================ */
+#hero {
+  position: relative;
+  height: 100svh;
+  min-height: 560px;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-placeholder);
+}
+
+/* グレープレースホルダー上のテキストのため薄い暗幕 */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 25, 20, 0.08) 0%,
+    rgba(26, 25, 20, 0.32) 100%
+  );
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  padding: 0 32px;
+  text-align: left;
+}
+.hero-content .container {
+  position: relative;
+}
+
+.hero-title-en {
+  font-family: var(--font-serif-en);
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.hero-subtitle {
+  font-family: var(--font-serif-ja);
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  letter-spacing: 0.3em;
+  color: rgba(255,255,255,0.85);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.hero-scroll span {
+  font-family: var(--font-serif-en);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+}
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: rgba(255,255,255,0.5);
+  position: relative;
+  overflow: hidden;
+}
+.scroll-line::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.9);
+  animation: scrollDrop 2s ease-in-out infinite;
+}
+@keyframes scrollDrop {
+  0%   { top: -100%; }
+  100% { top: 100%; }
+}
+
+/* ============================================
+   6. コンセプト（Message）
+   ============================================ */
+#concept {
+  padding: 120px 0;
+  background: var(--color-bg);
+}
+
+.concept-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.concept-text-col {
+  /* left column */
+}
+
+.concept-heading {
+  margin-bottom: 40px;
+}
+
+.concept-body {
+  font-family: var(--font-serif-ja);
+  font-size: 0.95rem;
+  line-height: 2.2;
+  color: var(--color-text);
+  letter-spacing: 0.05em;
+}
+.concept-body p {
+  margin-bottom: 1.8em;
+}
+.concept-body p:last-child {
+  margin-bottom: 0;
+}
+
+.concept-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--color-gold);
+  margin: 36px 0;
+}
+
+.concept-story {
+  font-family: var(--font-serif-ja);
+  font-size: 0.85rem;
+  line-height: 2.1;
+  color: var(--color-text-muted);
+}
+
+/* ---- スライドショーの構造定義 ---- */
+.hero-slides,
+.concept-slides {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-slide,
+.concept-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.hero-slide.active,
+.concept-slide.active {
+  opacity: 1;
+}
+
+/* 右側の写真 */
+.concept-image-col {
+  position: sticky;
+  top: calc(var(--header-h) + 40px);
+  height: 480px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(26, 43, 36, 0.04);
+}
+
+.concept-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================
+   7. ギャラリー
+   ============================================ */
+#gallery {
+  padding: 100px 0;
+  background: var(--color-surface);
+}
+
+.gallery-header {
+  margin-bottom: 56px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.gallery-img-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(26, 43, 36, 0.03);
+  background-color: var(--color-placeholder);
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.gallery-item:hover .gallery-img {
+  transform: scale(1.04);
+}
+
+.gallery-note {
+  margin-top: 40px;
+  text-align: center;
+  font-family: var(--font-serif-ja);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.1em;
+}
+.gallery-note a {
+  color: var(--color-gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.25s;
+}
+.gallery-note a:hover {
+  color: var(--color-gold-light);
+}
+
+/* ============================================
+   7-2. パティシエ（Patissier）
+   ============================================ */
+#patissier {
+  padding: 120px 0;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+.patissier-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.patissier-img-wrapper {
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(26, 43, 36, 0.06);
+}
+
+.patissier-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.patissier-heading {
+  margin-bottom: 40px;
+}
+
+.patissier-body {
+  font-family: var(--font-serif-ja);
+  font-size: 0.95rem;
+  line-height: 2.2;
+  color: var(--color-text);
+  letter-spacing: 0.05em;
+}
+
+.patissier-body .highlight-text {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 2;
+  margin-bottom: 24px;
+  border-left: 2px solid var(--color-gold);
+  padding-left: 16px;
+}
+
+.patissier-body p {
+  margin-bottom: 1.8em;
+}
+.patissier-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   8. オンラインショップ (BASE)
+   ============================================ */
+#shop {
+  padding: 100px 0;
+  background: var(--color-bg-dark);
+}
+
+.shop-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.shop-inner .section-label {
+  color: var(--color-gold-light);
+}
+
+.shop-title {
+  font-family: var(--font-serif-ja);
+  font-size: clamp(1.1rem, 4.2vw, 2.2rem);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: #fff;
+  margin-bottom: 20px;
+  white-space: nowrap; /* スマホ表示で改行を防止 */
+}
+
+.shop-desc {
+  font-family: var(--font-serif-ja);
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.08em;
+  margin-bottom: 48px;
+}
+
+.btn-shop {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  font-family: var(--font-serif-en);
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding: 16px 40px;
+  transition: background 0.35s, color 0.35s;
+}
+.btn-shop:hover {
+  background: var(--color-gold);
+  color: var(--color-bg-dark);
+}
+.btn-shop svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s;
+}
+.btn-shop:hover svg {
+  transform: translateX(4px);
+}
+
+/* ============================================
+   9. 店舗情報（Info）
+   ============================================ */
+#info {
+  padding: 100px 0;
+  background: var(--color-bg);
+}
+
+.info-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.info-table tr {
+  border-bottom: 1px solid var(--color-border);
+}
+.info-table tr:first-child {
+  border-top: 1px solid var(--color-border);
+}
+.info-table th {
+  font-family: var(--font-serif-en);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  text-align: left;
+  padding: 20px 0;
+  width: 30%;
+  vertical-align: top;
+}
+.info-table td {
+  font-family: var(--font-serif-ja);
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  padding: 20px 0 20px 16px;
+  vertical-align: top;
+}
+
+.info-instagram-link {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: var(--color-text);
+  transition: color 0.25s;
+}
+.info-instagram-link:hover {
+  color: var(--color-gold);
+}
+
+.info-note {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin-top: 6px;
+}
+
+/* 右側 - 予約・問い合わせ */
+.info-contact-col {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.info-contact-block {
+  padding: 36px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+.info-contact-block .block-label {
+  font-family: var(--font-serif-en);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  display: block;
+  margin-bottom: 12px;
+}
+.info-contact-block .block-title {
+  font-family: var(--font-serif-ja);
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.info-contact-block .phone-number {
+  font-family: var(--font-serif-en);
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+}
+.info-contact-block .phone-number a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.25s;
+}
+.info-contact-block .phone-number a:hover {
+  color: var(--color-gold);
+}
+.info-contact-block .block-note {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin-top: 8px;
+  line-height: 1.7;
+}
+
+/* ============================================
+   10. アクセス
+   ============================================ */
+#access {
+  padding: 0;
+  background: var(--color-bg);
+}
+
+.access-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
+}
+
+/* Googleマップ */
+.access-map {
+  position: relative;
+  min-height: 480px;
+}
+.access-map iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: grayscale(15%) contrast(1.05);
+}
+
+/* アクセス情報 */
+.access-info {
+  padding: 72px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+}
+
+.access-info .section-label {
+  margin-bottom: 4px;
+}
+
+.access-address {
+  font-family: var(--font-serif-ja);
+  font-size: 0.9rem;
+  line-height: 2;
+  color: var(--color-text);
+}
+
+.access-divider {
+  width: 32px;
+  height: 1px;
+  background: var(--color-gold);
+}
+
+.access-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.access-detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  font-family: var(--font-serif-ja);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+.access-detail-item .item-label {
+  font-family: var(--font-serif-en);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  white-space: nowrap;
+  padding-top: 3px;
+  min-width: 52px;
+}
+
+.parking-note {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  display: block;
+  margin-top: 2px;
+}
+
+.access-parking-map {
+  margin-top: 12px;
+  width: 100%;
+  max-width: 360px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 8px 20px rgba(26, 43, 36, 0.05);
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.parking-map-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================
+   11. フッター
+   ============================================ */
+#site-footer {
+  background: var(--color-bg-dark);
+  padding: 60px 0 40px;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.footer-logo-image {
+  height: 72px;
+  width: auto;
+  display: block;
+  padding: 8px;
+  background: var(--color-bg); /* アイボリーのタグのように見せる演出 */
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.footer-nav {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.footer-nav a {
+  font-family: var(--font-serif-en);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  transition: color 0.25s;
+}
+.footer-nav a:hover {
+  color: var(--color-gold-light);
+}
+
+.footer-line {
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+}
+
+.footer-copy {
+  font-family: var(--font-serif-en);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ============================================
+   10-2. ホールケーキ（Whole Cake）
+   ============================================ */
+#wholecake {
+  padding: 120px 0;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+.wholecake-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 0 80px;
+  align-items: start;
+}
+
+.wholecake-intro-col {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.wholecake-desc-text {
+  font-family: var(--font-serif-ja);
+  font-size: 0.95rem;
+  line-height: 2.2;
+  color: var(--color-text);
+  letter-spacing: 0.05em;
+}
+
+.wholecake-details-col {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.wholecake-heading {
+  margin-bottom: 40px;
+}
+
+.wholecake-body {
+  font-family: var(--font-serif-ja);
+  font-size: 0.95rem;
+  line-height: 2.2;
+  color: var(--color-text);
+  letter-spacing: 0.05em;
+}
+
+.wholecake-body p {
+  margin-bottom: 1.8em;
+}
+
+/* ご予約注意事項（上品でわかりやすいボックス） */
+.wholecake-notice {
+  margin: 32px 0;
+  padding: 28px;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-gold);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(26, 43, 36, 0.02);
+}
+
+.wholecake-notice .notice-title {
+  font-family: var(--font-serif-ja);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+
+.wholecake-notice ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wholecake-notice li {
+  display: flex;
+  align-items: flex-start;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+.wholecake-notice li .bullet {
+  color: var(--color-gold);
+  margin-right: 6px;
+  font-weight: bold;
+}
+
+.wholecake-notice li .text {
+  flex: 1;
+}
+
+.wholecake-notice li .highlight {
+  color: #c95c47;
+  font-weight: 500;
+}
+
+.wholecake-action {
+  margin-top: 36px;
+}
+
+/* スライドショーの構造定義 */
+.wholecake-image-col {
+  grid-column: 2 / 3;
+  grid-row: 1 / 4;
+  position: relative;
+  height: 100%;
+  min-height: 480px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(26, 43, 36, 0.04);
+}
+
+.wholecake-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.wholecake-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.wholecake-slide.active {
+  opacity: 1;
+}
+
+/* ============================================
+   10-3. ホールケーキ詳細ページ (wholecake.html)
+   ============================================ */
+.page-header {
+  padding: 160px 0 20px;
+  background: transparent;
+  text-align: center;
+  border-bottom: none;
+}
+
+.page-title-en {
+  font-family: var(--font-bodoni);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--color-gold);
+  line-height: 1.2;
+}
+
+.page-subtitle {
+  font-family: var(--font-serif-ja);
+  font-size: 0.9rem;
+  letter-spacing: 0.3em;
+  color: var(--color-text-muted);
+  margin-top: 8px;
+}
+
+.wholecake-detail-section {
+  padding: 100px 0;
+  background: var(--color-bg);
+}
+
+.cake-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.cake-card {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* 交互配置 */
+.cake-card:nth-child(even) {
+  direction: rtl;
+}
+
+.cake-card:nth-child(even) .cake-info-col {
+  direction: ltr;
+}
+
+.cake-img-col {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(26, 43, 36, 0.05);
+  background-color: var(--color-placeholder);
+}
+
+.cake-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.cake-img-col:hover .cake-img {
+  transform: scale(1.05);
+}
+
+.cake-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cake-name-en {
+  font-family: var(--font-serif-en);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.cake-name-ja {
+  font-family: var(--font-serif-ja);
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.cake-desc {
+  font-family: var(--font-serif-ja);
+  font-size: 0.92rem;
+  line-height: 2;
+  color: var(--color-text-muted);
+}
+
+.cake-price-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cake-price-item {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-serif-ja);
+  font-size: 0.9rem;
+}
+
+.cake-price-size {
+  color: var(--color-text);
+}
+
+.cake-price-value {
+  font-family: var(--font-serif-en);
+  color: var(--color-gold);
+  font-weight: 500;
+}
+
+.cake-meta {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.cake-back-actions {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  font-family: var(--font-serif-en);
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding: 16px 48px;
+  transition: background 0.35s, color 0.35s;
+}
+
+.btn-back:hover {
+  background: var(--color-gold);
+  color: var(--color-bg);
+}
+
+.btn-back svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s;
+  transform: rotate(180deg);
+}
+
+.btn-back:hover svg {
+  transform: rotate(180deg) translateX(4px);
+}
+
+.sp-only {
+  display: none;
+}
+
+.cake-other-notice {
+  text-align: center;
+  margin-top: 80px;
+  font-family: var(--font-serif-ja);
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  font-weight: 500;
+  color: #c95c47;
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+}
+
+/* ============================================
+   12. レスポンシブ
+   ============================================ */
+
+/* タブレット（〜1024px） */
+@media (max-width: 1024px) {
+  :root {
+    --header-h: 60px;
+  }
+
+  .header-nav {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+
+  /* スクロール前はロゴ非表示 */
+  #site-header:not(.scrolled) .site-logo {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .concept-inner,
+  .patissier-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .concept-image-col {
+    position: static;
+  }
+
+  .wholecake-inner {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 32px;
+  }
+  .wholecake-intro-col,
+  .wholecake-action,
+  .wholecake-details-col {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .wholecake-image-col {
+    position: relative;
+    grid-column: auto;
+    grid-row: auto;
+    height: 360px;
+    min-height: auto;
+  }
+  
+  .wholecake-action {
+    text-align: center;
+    margin: 12px 0 0;
+  }
+  
+  .wholecake-action .btn-shop {
+    padding: 12px 28px;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+  }
+  .concept-img-main {
+    height: 320px;
+    width: 100%;
+  }
+
+  .info-inner {
+    grid-template-columns: 1fr;
+    gap: 52px;
+  }
+
+  .access-inner {
+    grid-template-columns: 1fr;
+  }
+  .access-map {
+    min-height: 380px;
+  }
+  .access-info {
+    padding: 56px 32px;
+  }
+}
+
+/* スマートフォン（〜768px） */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .sp-only {
+    display: block;
+  }
+
+  .cake-other-notice {
+    margin-top: 52px;
+    padding: 0 10px;
+  }
+
+  #concept,
+  #patissier {
+    padding: 80px 0;
+  }
+  #gallery {
+    padding: 72px 0;
+  }
+  #shop {
+    padding: 72px 0;
+  }
+  #info {
+    padding: 72px 0;
+  }
+  .access-info {
+    padding: 52px 20px;
+  }
+
+  /* ギャラリー: 2カラム */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  /* コンセプト写真・ホールケーキ写真: 縦積み・スライドショー */
+  .concept-image-col,
+  .wholecake-image-col {
+    position: static;
+    height: 320px;
+    width: 100%;
+  }
+
+  /* ホールケーキ詳細カードのレスポンシブ */
+  .cake-card {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .cake-card:nth-child(even) {
+    direction: ltr;
+  }
+  .cake-img-col {
+    aspect-ratio: 16 / 10;
+  }
+
+  .patissier-img-wrapper {
+    height: 360px;
+  }
+
+  .info-contact-block {
+    padding: 24px;
+  }
+
+  .footer-nav {
+    gap: 18px;
+  }
+
+  .hero-content {
+    bottom: 48px;
+  }
+  .hero-scroll {
+    display: none;
+  }
+
+  /* 店舗情報テーブルのスマホ調整 */
+  .info-table th {
+    width: 25%;
+  }
+  .info-table td {
+    padding-left: 8px;
+  }
+}
+
+/* 小画面（〜480px） */
+@media (max-width: 480px) {
+  .site-logo .logo-image {
+    height: 44px; /* 小画面時はロゴをさらに少しコンパクトにする */
+  }
+}
+
+/* ============================================
+   13. オープニングアニメーション
+   ============================================ */
+#opening-mask {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-bg);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1.2s cubic-bezier(0.85, 0, 0.15, 1), visibility 1.2s;
+}
+
+#opening-mask.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.opening-logo-wrapper {
+  opacity: 0;
+  transform: scale(0.95) translateY(12px);
+  animation: logoFadeInUp 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.2s;
+}
+
+.opening-logo {
+  height: clamp(180px, 28vw, 280px); /* ロゴを約2倍近く大きく表示して視認性とインパクトを向上 */
+  width: auto;
+  display: block;
+  mix-blend-mode: multiply;
+}
+
+@keyframes logoFadeInUp {
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
